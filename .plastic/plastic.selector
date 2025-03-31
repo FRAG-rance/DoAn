@@ -1,0 +1,4 @@
+repository "fin/fin@18967892416707@cloud"
+  path "/"
+    br "/main"
+    co "/main"
