@@ -34,22 +34,26 @@ public class WeatherState : MonoBehaviour
         lightningPct = GenRandomPct();
     }
 
-    public State GetRandomWeather(float duststormPct, float tornadoPct, float lightningPct)
+    public WeatherState.State GetRandomWeather(float duststormPct, float tornadoPct, float lightningPct)
     {
         float totalPct = duststormPct + tornadoPct + lightningPct;
         float randomValue = Random.Range(0f, totalPct);
-        if (randomValue < duststormPct) return State.Duststorm;
-        else if (randomValue < duststormPct + tornadoPct) return State.Tornado;
-        return State.Lightning;
+        if (randomValue < duststormPct) return WeatherState.State.Duststorm;
+        else if (randomValue < duststormPct + tornadoPct) return WeatherState.State.Tornado;
+        return WeatherState.State.Lightning;
     }
     public State GetCurrentState()
     {
         return currentWeatherState;
     }
+    public void SetCurrentState(WeatherState.State weatherState)
+    {
+        currentWeatherState = weatherState;
+    }
     public void CycleWeatherState()
     {
         RandomizeWeatherPct();
-        currentWeatherState = GetRandomWeather(duststormPct, tornadoPct, lightningPct);
+        SetCurrentState(GetRandomWeather(duststormPct, tornadoPct, lightningPct));
         OnWeatherChanged?.Invoke(currentWeatherState);
     }
 }

@@ -16,22 +16,25 @@ public class WeatherEffect : MonoBehaviour
 
     [SerializeField] WeatherParameters lightningWeatherParameters;
 
-    [SerializeField] private LightningEffect lightningEffect;
-    private void Awake()
-    {
-        currentWeatherEffectParameters = stormWeatherParameters;
-        targetWeatherEffectParameters = new WeatherParameters();
-    }
+    [SerializeField] public UnityEvent<WeatherState.State> OnWeatherTrigger;
+
+
+    //private void Awake()
+    //{
+    //    currentWeatherEffectParameters = stormWeatherParameters;
+    //    targetWeatherEffectParameters = new WeatherParameters();
+    //}
     private void Start()
     {
-        SetWeatherEffect(_weatherState.GetCurrentState());
+        //SetWeatherEffect(_weatherState.GetCurrentState());
     }
 
     public void SetWeatherEffect(WeatherState.State state)
     {
+        //_weatherState.SetCurrentState(state);
         switch(state)
         {
-            case WeatherState.State.Duststorm :
+            case WeatherState.State.Duststorm:
                 currentWeatherEffectParameters = stormWeatherParameters;
                 break;
             case WeatherState.State.Tornado:
@@ -41,9 +44,11 @@ public class WeatherEffect : MonoBehaviour
                 currentWeatherEffectParameters = lightningWeatherParameters;
                 break;
         }
+        OnWeatherTrigger?.Invoke(state);
     }
 
     public void UpdateWeatherEffect()
     {
+
     }
 }

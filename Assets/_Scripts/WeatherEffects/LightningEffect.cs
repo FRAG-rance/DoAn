@@ -12,14 +12,29 @@ public class LightningEffect : MonoBehaviour
 
     private void Start()
     {
-
+        if (lightingSFX == null)
+        {
+            Debug.LogError("Lightning SFX prefab not set in LightningEffect!");
+        }
     }
 
-    void ActivateLightningEffect()
+    IEnumerator CallFunctionForTime(System.Action function, float duration, float interval)
     {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            function?.Invoke();
+            yield return new WaitForSeconds(interval);
+            timer += interval;
+        }
     }
 
-    public void LightningStrike()
+    public void ActivateLightningEffect()
+    {
+        StartCoroutine(CallFunctionForTime(LightningStrike, 5f, 1f));
+    }
+
+    private void LightningStrike()
     {
         GameObject temp = Instantiate(lightingSFX);
         Vector3 randomPosition = RandomGridPosition(5, 5);// hard coded also 
@@ -28,7 +43,7 @@ public class LightningEffect : MonoBehaviour
         OnLightningStrike?.Invoke(randomPosition);
     }
 
-    public Vector3Int RandomGridPosition(int gridX, int gridZ)
+    private Vector3Int RandomGridPosition(int gridX, int gridZ)
     {
         int x = Random.Range(-gridX, gridX);
         int z = Random.Range(-gridZ, gridZ);

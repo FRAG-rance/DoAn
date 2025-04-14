@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2, y: 58.2}
+  m_AnchoredPosition: {x: -2.2, y: 62.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1630736103742026753
@@ -173,7 +173,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 350}
+  m_SizeDelta: {x: 75, y: 105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7492442042836703259
 CanvasRenderer:
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 072f9a3983fd642b18925f878f115f57, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -227,6 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragging: 0
   isHovering: 0
+  moveSpeedLimit: 50
+  selected: 0
   PointerEnterEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -249,11 +251,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   data: {fileID: 11400000, guid: 41b65f073c5a4d84791e42a8615e501a, type: 2}
-  cardData:
-    <Name>k__BackingField: 
-    <Id>k__BackingField: 0
-    <Prefab>k__BackingField: {fileID: 0}
-    <Size>k__BackingField: {x: 1, y: 1}
 --- !u!114 &4765585236241133557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 10, y: 10}
+  m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!114 &3414560962280135130
 MonoBehaviour:

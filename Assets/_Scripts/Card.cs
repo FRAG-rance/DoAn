@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -10,8 +12,13 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
        
     [SerializeField] private bool isDragging;
     [SerializeField] private bool isHovering;
-
     //[SerializeField] private PlacementSystem placementSystem;
+
+    [Header("Movement")]
+    [SerializeField] private float moveSpeedLimit = 50;
+
+    [Header("Selection")]
+    public bool selected;
 
     [Header("Events")]
     [HideInInspector] public UnityEvent<Card> PointerEnterEvent;
@@ -39,67 +46,51 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void Update()
     {
-        Vector2 localPoint;
-        if(transform.position.x > 400 && transform.position.y > 300)
-        {
-            Destroy(this.gameObject);
-            //placementSystem.StartPlacement(1);
-        }
         
         ClampPosition();
         if (isDragging)
         {
-            //Vector2 targetPosition = Input.mousePosition - offset;
-            //Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-            //Vector2 velocity = direction * Mathf.Min(moveSpeedLimit, Vector2.Distance(transform.position, targetPosition) / Time.deltaTime);
-            //transform.Translate(velocity * Time.deltaTime);
-            //transform.position = targetPosition;
-
-            RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform) canvas.transform, Input.mousePosition, canvas.worldCamera, out localPoint);
-            transform.position = canvas.transform.TransformPoint(localPoint);
-            //Debug.Log(transform.position);
+            Vector2 targetPosition = Input.mousePosition;
+            transform.position = targetPosition;
         }
     }
 
     void ClampPosition()
     {
-        Vector2 screenBounds = Camera.main.ScreenToViewportPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        Vector3 clampedPosition = transform.position;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -screenBounds.x, screenBounds.x);
-        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -screenBounds.y, screenBounds.y);
-        /*Debug.Log(screenBounds);
-        Debug.Log(clampedPosition);*/
-        //transform.position = new Vector3(clampedPosition.x, clampedPosition.y, 0);
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        BeginDragEvent?.Invoke(this);
         isDragging = true;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        EndDragEvent?.Invoke(this);
         isDragging = false;
-    }
-
-    public void OnDrag()
-    {
-        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        PointerEnterEvent.Invoke(this);
         isHovering = true;
+
+        
     }
 
     public void OnPointerExit(PointerEventData eventData) 
     {
+        PointerExitEvent.Invoke(this);
         isHovering = false;
+
+        
     }
 
     public void OnPointerUp(PointerEventData eventData) { }

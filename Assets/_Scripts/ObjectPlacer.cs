@@ -10,6 +10,7 @@ public class ObjectPlacer : MonoBehaviour
     public int PlaceObject(GameObject prefab, Vector3 position, Vector3Int gridPosition)
     {
         GameObject newObject = Instantiate(prefab);
+        newObject.transform.GetChild(1).gameObject.SetActive(true);
         newObject.transform.position = position;
         placedGameObjects.Add(gridPosition, newObject);
         return placedGameObjects.Count - 1;
