@@ -24424,6 +24424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 796440485400311971}
+  - component: {fileID: 6384169164579375659}
   m_Layer: 0
   m_Name: Lightning
   m_TagString: Untagged
@@ -24447,6 +24448,29 @@ Transform:
   - {fileID: 3371697575266323309}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6384169164579375659
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781980574178385846}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 15
+  m_Direction: 1
+  m_Center: {x: 0.5, y: 8, z: 0.5}
 --- !u!1 &4947546325988288307
 GameObject:
   m_ObjectHideFlags: 0

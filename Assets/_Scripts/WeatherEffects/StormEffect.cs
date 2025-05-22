@@ -8,25 +8,28 @@ public class StormEffect : MonoBehaviour
 {
     private Vector3 currentRotation;
     [SerializeField] private GameObject StormSFX;
-    [SerializeField] private ObjectPlacer _objectplacer;
+    [SerializeField] private GridData gridData;
+    [SerializeField] private CameraController cameraControl;
     [HideInInspector] public UnityEvent<List<Vector3>> OnStormEvent;
+    [HideInInspector] public UnityEvent OnStormEventFinished;
+
 
     /*public void SetWindDirection(Vector3 direction)
     {
         currentRotation = direction.normalized;
     }*/
 
-    IEnumerator Wait5Secs(GameObject storm)
+    public void OnStormFinished()
     {
-        yield return new WaitForSeconds(5);
-        Destroy(storm);
+        OnStormEventFinished?.Invoke();
     }
 
     public void ActivateStormEffect() 
     {
         RandommizeWindDirection();
-        Debug.Log(currentRotation);
+        //Debug.Log(currentRotation);
         SetStormVisual(currentRotation);
+        StartCoroutine(cameraControl.HandleStormCameraPhysics(currentRotation,5));
         List<Vector3> damagedBuilding = GetFirstFacingBuildings();
         OnStormEvent?.Invoke(damagedBuilding);
     }
@@ -46,19 +49,19 @@ public class StormEffect : MonoBehaviour
         GameObject storm = Instantiate(StormSFX);
         if (direction == Vector3.right)
         {
-            storm.transform.position = new Vector3(-5, 0, 0);
+            storm.transform.position = new Vector3(-5, 1, 0);
         }
         else if (direction == Vector3.left) {
-            storm.transform.position = new Vector3(5, 0, 0);
+            storm.transform.position = new Vector3(5, 1, 0);
             storm.transform.rotation = Quaternion.Euler(-90, 180, 0);
         } else if (direction == Vector3.forward) {
-            storm.transform.position = new Vector3(0, 0, 5);
+            storm.transform.position = new Vector3(0, 1, 5);
             storm.transform.rotation = Quaternion.Euler(-90, 90, 0);
         } else if (direction == Vector3.back) {
-            storm.transform.position = new Vector3(0, 0, -5);
+            storm.transform.position = new Vector3(0, 1, -5);
             storm.transform.rotation = Quaternion.Euler(-90, 270, 0);
         }
-        StartCoroutine(Wait5Secs(storm));
+        StartCoroutine(Wait5SecsToDestroy(storm, OnStormFinished));
     }
 
     private List<Vector3> GetFirstFacingBuildings()
@@ -68,7 +71,7 @@ public class StormEffect : MonoBehaviour
         //vector3.foward=   (0,0,1)
         //vector3.back  =   (0,0,-1)
 
-        List<Vector3> positions = _objectplacer.GetAllBuildingLocation();
+        List<Vector3Int> positions = PlacementSystem.furnitureData.GetAllBuildingLocation();
         List<Vector3> result = new();
 
         // Handle single object case
@@ -80,7 +83,8 @@ public class StormEffect : MonoBehaviour
 
         // Determine which axis to group by based on wind direction
         bool isHorizontalWind = Mathf.Abs(currentRotation.x) > Mathf.Abs(currentRotation.z);
-        
+        //Debug.Log(isHorizontalWind);
+
         // Group positions by the appropriate axis
         Dictionary<float, List<Vector3>> columns = new Dictionary<float, List<Vector3>>();
         foreach (var pos in positions)
@@ -93,25 +97,14 @@ public class StormEffect : MonoBehaviour
             columns[key].Add(pos);
         }
 
-        foreach(var (value,list) in columns)
-        {
-            Debug.Log(value + ":");
-            foreach(var el in list)
-            {
-                Debug.Log(el);
-            }
-        }
+        //debug check for columns
 
-        // For each column, find the first object facing against the wind
+
+        // Sort the column by the appropriate axis
         foreach (var column in columns.Values)
         {
-            if (column.Count == 1)
+            column.Sort((a, b) =>
             {
-                result.Add(column[0]);
-                continue;
-            }
-            // Sort the column by the appropriate axis
-            column.Sort((a, b) => {
                 if (isHorizontalWind)
                 {
                     // For horizontal wind (left/right), sort by X
@@ -120,40 +113,65 @@ public class StormEffect : MonoBehaviour
                 else
                 {
                     // For vertical wind (forward/back), sort by Z
-                    return currentRotation.z > 0 ? a.z.CompareTo(b.z) : b.z.CompareTo(a.z);
+                    return currentRotation.z < 0 ? a.z.CompareTo(b.z) : b.z.CompareTo(a.z);
                 }
             });
-
-            // Find the first object that's facing against the wind
-            foreach (var pos in column)
-            {
-                float dotProduct = Vector3.Dot(pos, currentRotation);
-                if (dotProduct < 0) // Object is facing against the wind
-                {
-                    result.Add(pos);
-                    break; // Move to next column
-                }
-            }
         }
 
-        Debug.Log("answer______________");
+        /*Debug.Log("----columns-----");
+        foreach (var (value, list) in columns)
+        {
+            Debug.Log(value + ":");
+            foreach (var el in list)
+            {
+                Debug.Log(el);
+            }
+        }*/
+
+        foreach (var column in columns.Values)
+        {
+            /*if (currentRotation == new Vector3(1, 0, 0) || currentRotation == new Vector3(0, 0, 1))
+            {
+                result.Add(column[0]);
+            }
+            if (currentRotation == new Vector3(-1, 0, 0) || currentRotation == new Vector3(0, 0, -1))
+            {
+                result.Add(column[column.Count-1]);
+            }*/
+            result.Add(column[0]);
+        }
+        
+
+        // Find the first object that's facing against the wind
+        /*foreach (var pos in column)
+        {
+            float dotProduct = Vector3.Dot(pos, currentRotation);
+            if (dotProduct < 0) // Object is facing against the wind
+            {
+                result.Add(pos);
+                break; // Move to next column
+            }
+
+
+        }*/
+
+
+        
+
+        //debug check for output
+        /*Debug.Log("answer______________");
         foreach (var pos in result)
         {
             Debug.Log(pos);
-        }
-
+        }*/
         return result;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    IEnumerator Wait5SecsToDestroy(GameObject storm, System.Action callback)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        yield return new WaitForSeconds(5);
+        //Debug.Log("waited 5s");
+        Destroy(storm);
+        callback?.Invoke();
     }
 }

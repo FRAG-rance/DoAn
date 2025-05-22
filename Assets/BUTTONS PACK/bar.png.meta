@@ -1,0 +1,802 @@
+fileFormatVersion: 2
+guid: aaaf293dfefff6d4db109cea8ab15e6c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: progressbar0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 186
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba29ebff6225ee43bb2bd6ab44409cd
+      internalID: 988933793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 178
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd499f42e33a5a49b82cb76fa4d1cd2
+      internalID: -669067721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 170
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2fdf5834cc1bd409d8baf09ce91ef8
+      internalID: 1967733259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 162
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac14dab0f3b0b048bfd68cb0c74429f
+      internalID: -482100689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 154
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257c88aa4faded341b84e07297f6ad1e
+      internalID: -323755918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 146
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0621ef2060cb644b8b5ba3590eb699
+      internalID: 133108411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 138
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd7d8c082823584783df461ff7b95a4
+      internalID: 2100362769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar7
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 130
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040537f7b5112b34e8953e32965a3313
+      internalID: -1571288332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 122
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f9228593378234cbcc9bcdd1bf0292
+      internalID: 1258887575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 114
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a0a81d295b0084e9c619f2f5d77ff0
+      internalID: 975607177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 106
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed96f1b87e4cf4f4589e1e0da237cabf
+      internalID: -1599714782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar11
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 98
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c7bd2c3be67f2499bdf7927c587c00
+      internalID: -855769754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 90
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69421bb39b4cb04ba92fcaaa3858369
+      internalID: 988660127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar13
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 82
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc5bdb0ec8562a4b83a453148317a33
+      internalID: -1400032466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 74
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c052431276cf494f93401f717eea558
+      internalID: 1791513176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 66
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce799bf3338e7744916c34446cf3782
+      internalID: -2111970572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 58
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e960ff0e4937874799f83107b075f12
+      internalID: -582599946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar17
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 50
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072e161d09031f341ab3e1db2f6b11cc
+      internalID: 212961919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 42
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc66f31dfb08a64dbceb8286135071c
+      internalID: 345540586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar19
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 34
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732a7a656d3e8e24590a1166c9d69f97
+      internalID: 1259085152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 26
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4045b025aab73e46a1106fbe7244d98
+      internalID: -1372722397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar21
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 18
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a72eb5cee728643b10931ce2418d48
+      internalID: -477100682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: progressbar22
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 10
+        width: 93
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96c461a931a52e48b43775cb6ca2cf4
+      internalID: 1266284601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      bar_0: 129129508
+      progressbar0: 988933793
+      progressbar1: -669067721
+      progressbar10: -1599714782
+      progressbar11: -855769754
+      progressbar12: 988660127
+      progressbar13: -1400032466
+      progressbar14: 1791513176
+      progressbar15: -2111970572
+      progressbar16: -582599946
+      progressbar17: 212961919
+      progressbar18: 345540586
+      progressbar19: 1259085152
+      progressbar2: 1967733259
+      progressbar20: -1372722397
+      progressbar21: -477100682
+      progressbar22: 1266284601
+      progressbar3: -482100689
+      progressbar4: -323755918
+      progressbar5: 133108411
+      progressbar6: 2100362769
+      progressbar7: -1571288332
+      progressbar8: 1258887575
+      progressbar9: 975607177
+      sci_fi_buttons_0: 1505988017
+      sci_fi_buttons_1: 210751975
+      sci_fi_buttons_10: -1037011716
+      sci_fi_buttons_100: 1203554914
+      sci_fi_buttons_101: 194807994
+      sci_fi_buttons_102: -886883347
+      sci_fi_buttons_103: -2135450034
+      sci_fi_buttons_104: -1921194548
+      sci_fi_buttons_105: 1700197699
+      sci_fi_buttons_106: -408586946
+      sci_fi_buttons_107: 655900456
+      sci_fi_buttons_108: 1447708860
+      sci_fi_buttons_109: 2002289658
+      sci_fi_buttons_11: 757738434
+      sci_fi_buttons_110: -454603590
+      sci_fi_buttons_111: -1203695332
+      sci_fi_buttons_112: 1704090044
+      sci_fi_buttons_113: -2012109293
+      sci_fi_buttons_114: -783208256
+      sci_fi_buttons_115: 539681237
+      sci_fi_buttons_116: 164938475
+      sci_fi_buttons_117: 1687358043
+      sci_fi_buttons_118: -247870272
+      sci_fi_buttons_119: -1757644902
+      sci_fi_buttons_12: 2076153653
+      sci_fi_buttons_120: -1122032729
+      sci_fi_buttons_121: 885461571
+      sci_fi_buttons_122: -270551842
+      sci_fi_buttons_123: 1358916701
+      sci_fi_buttons_124: 1387175001
+      sci_fi_buttons_125: -424124270
+      sci_fi_buttons_126: 746738134
+      sci_fi_buttons_127: 1877115467
+      sci_fi_buttons_128: 712697500
+      sci_fi_buttons_129: 150988506
+      sci_fi_buttons_13: -1811513628
+      sci_fi_buttons_130: -1434308460
+      sci_fi_buttons_131: 1232960012
+      sci_fi_buttons_132: -1635216494
+      sci_fi_buttons_133: -169518446
+      sci_fi_buttons_134: 1696244492
+      sci_fi_buttons_135: -1225690298
+      sci_fi_buttons_136: 830189020
+      sci_fi_buttons_137: -1830493926
+      sci_fi_buttons_138: -2001943091
+      sci_fi_buttons_139: 1375139133
+      sci_fi_buttons_14: 1809078014
+      sci_fi_buttons_140: -1113391084
+      sci_fi_buttons_141: -1131688592
+      sci_fi_buttons_142: 1493320844
+      sci_fi_buttons_143: -1767180868
+      sci_fi_buttons_144: -496231316
+      sci_fi_buttons_145: -1018510463
+      sci_fi_buttons_146: 1357233281
+      sci_fi_buttons_147: -273660502
+      sci_fi_buttons_148: 1990830579
+      sci_fi_buttons_149: -1309137631
+      sci_fi_buttons_15: -1947025338
+      sci_fi_buttons_150: 1371391002
+      sci_fi_buttons_151: 864079538
+      sci_fi_buttons_152: 1081052239
+      sci_fi_buttons_153: 1320320037
+      sci_fi_buttons_156: -1320557103
+      sci_fi_buttons_157: 1795725408
+      sci_fi_buttons_158: -313745711
+      sci_fi_buttons_159: 1663579948
+      sci_fi_buttons_16: -1544057572
+      sci_fi_buttons_164: 717115707
+      sci_fi_buttons_165: -1814656395
+      sci_fi_buttons_166: -256442337
+      sci_fi_buttons_167: -1630749579
+      sci_fi_buttons_17: 1911310015
+      sci_fi_buttons_171: 1159542694
+      sci_fi_buttons_172: -31340334
+      sci_fi_buttons_174: 1807320379
+      sci_fi_buttons_175: -747867482
+      sci_fi_buttons_176: 1807748469
+      sci_fi_buttons_179: -1650250181
+      sci_fi_buttons_18: 309937122
+      sci_fi_buttons_180: 523765607
+      sci_fi_buttons_183: 1512149791
+      sci_fi_buttons_184: -270784080
+      sci_fi_buttons_185: -1446530325
+      sci_fi_buttons_186: 1877169258
+      sci_fi_buttons_187: -1165151962
+      sci_fi_buttons_19: -264907775
+      sci_fi_buttons_190: -2125741238
+      sci_fi_buttons_192: 903544656
+      sci_fi_buttons_194: 999159389
+      sci_fi_buttons_195: -257955223
+      sci_fi_buttons_196: 1108016023
+      sci_fi_buttons_198: 1831289326
+      sci_fi_buttons_199: -826988867
+      sci_fi_buttons_2: 7756160
+      sci_fi_buttons_20: 1088204713
+      sci_fi_buttons_21: 1283206840
+      sci_fi_buttons_22: -1553670433
+      sci_fi_buttons_23: -1235769569
+      sci_fi_buttons_24: 1172843144
+      sci_fi_buttons_25: 1516682701
+      sci_fi_buttons_26: -885860142
+      sci_fi_buttons_27: -858232555
+      sci_fi_buttons_28: -388341455
+      sci_fi_buttons_29: 2087241499
+      sci_fi_buttons_3: 117249278
+      sci_fi_buttons_30: 222373612
+      sci_fi_buttons_31: 283757155
+      sci_fi_buttons_32: -147264653
+      sci_fi_buttons_33: -2084593398
+      sci_fi_buttons_34: -5997860
+      sci_fi_buttons_35: -2138839812
+      sci_fi_buttons_36: 1474538259
+      sci_fi_buttons_37: 134727060
+      sci_fi_buttons_38: 1257937160
+      sci_fi_buttons_39: -1595832625
+      sci_fi_buttons_4: 1698596680
+      sci_fi_buttons_40: 1489189972
+      sci_fi_buttons_41: 1182830139
+      sci_fi_buttons_42: -977645496
+      sci_fi_buttons_43: 1506880267
+      sci_fi_buttons_44: 1073373105
+      sci_fi_buttons_45: -1517739231
+      sci_fi_buttons_46: -1570250336
+      sci_fi_buttons_47: 1647685665
+      sci_fi_buttons_48: 542787675
+      sci_fi_buttons_49: 1561234147
+      sci_fi_buttons_5: 1417475636
+      sci_fi_buttons_50: -1142541715
+      sci_fi_buttons_51: -69775063
+      sci_fi_buttons_52: -92958107
+      sci_fi_buttons_53: -1606600617
+      sci_fi_buttons_54: 1968240162
+      sci_fi_buttons_55: 255807050
+      sci_fi_buttons_56: 1214502145
+      sci_fi_buttons_57: -481920740
+      sci_fi_buttons_58: -1111322770
+      sci_fi_buttons_59: 97842636
+      sci_fi_buttons_6: -1996253342
+      sci_fi_buttons_60: -688450819
+      sci_fi_buttons_61: 2085473058
+      sci_fi_buttons_62: 937314424
+      sci_fi_buttons_63: -787033252
+      sci_fi_buttons_64: -556828281
+      sci_fi_buttons_65: 284352589
+      sci_fi_buttons_66: 1766339836
+      sci_fi_buttons_67: -984624078
+      sci_fi_buttons_68: -674416335
+      sci_fi_buttons_69: 1853807655
+      sci_fi_buttons_7: 607632632
+      sci_fi_buttons_70: 774801916
+      sci_fi_buttons_71: -762043570
+      sci_fi_buttons_72: 908075454
+      sci_fi_buttons_73: -194318188
+      sci_fi_buttons_74: 56396144
+      sci_fi_buttons_75: 1861767894
+      sci_fi_buttons_76: 1273219363
+      sci_fi_buttons_77: 1004642813
+      sci_fi_buttons_78: 182225054
+      sci_fi_buttons_79: -256971996
+      sci_fi_buttons_8: 566385381
+      sci_fi_buttons_80: -261041165
+      sci_fi_buttons_81: -1328829389
+      sci_fi_buttons_82: 848254010
+      sci_fi_buttons_83: -821035130
+      sci_fi_buttons_84: 992571533
+      sci_fi_buttons_85: 230801290
+      sci_fi_buttons_86: 887522704
+      sci_fi_buttons_87: 372048167
+      sci_fi_buttons_88: 756129133
+      sci_fi_buttons_89: -1453338224
+      sci_fi_buttons_9: 1868074507
+      sci_fi_buttons_90: 952681095
+      sci_fi_buttons_91: 96855939
+      sci_fi_buttons_92: 2103793248
+      sci_fi_buttons_93: -1985978227
+      sci_fi_buttons_94: -1502351684
+      sci_fi_buttons_95: 2082389636
+      sci_fi_buttons_96: 134139269
+      sci_fi_buttons_97: 153490149
+      sci_fi_buttons_98: 1582333780
+      sci_fi_buttons_99: -1623721228
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

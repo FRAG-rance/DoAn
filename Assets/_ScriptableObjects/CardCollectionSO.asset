@@ -13,15 +13,23 @@ MonoBehaviour:
   m_Name: CardCollectionSO
   m_EditorClassIdentifier: 
   cardData:
-  - <Name>k__BackingField: BaseA
-    <Prefab>k__BackingField: {fileID: 3570792796568956633, guid: dcdff6e3bc9fca742b22604f1b5dc122,
+  - <Name>k__BackingField: House
+    <Prefab>k__BackingField: {fileID: 3248740386315380035, guid: a9d5944a90054af48841c8572d4bd604,
       type: 3}
     <ID>k__BackingField: 1
-  - <Name>k__BackingField: BaseB
-    <Prefab>k__BackingField: {fileID: 4168573547780433047, guid: 55a039592ebd2974ead441900fea068b,
+  - <Name>k__BackingField: Farm
+    <Prefab>k__BackingField: {fileID: 5556516081372114644, guid: 1524a85e83115d841ad8a8654e605548,
       type: 3}
     <ID>k__BackingField: 2
-  - <Name>k__BackingField: BaseC
-    <Prefab>k__BackingField: {fileID: 1876966114359484996, guid: 4c34be510e56284448579ffffb54648e,
+  - <Name>k__BackingField: Factory
+    <Prefab>k__BackingField: {fileID: 1068133199750761741, guid: 51afd097eb4897c48a2b8a5e09483f32,
       type: 3}
     <ID>k__BackingField: 3
+  - <Name>k__BackingField: Post
+    <Prefab>k__BackingField: {fileID: 1068799158641464454, guid: 0580394d55c4f684197ec6df303f78b6,
+      type: 3}
+    <ID>k__BackingField: 4
+  - <Name>k__BackingField: Tower
+    <Prefab>k__BackingField: {fileID: 3603706948998270781, guid: b375df74934ec0c45a1f26198fd8955d,
+      type: 3}
+    <ID>k__BackingField: 5

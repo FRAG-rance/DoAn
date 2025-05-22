@@ -9,9 +9,6 @@ using UnityEngine.Events;
 
 public class WeatherState : MonoBehaviour
 {
-    [SerializeField] private float duststormPct;
-    [SerializeField] private float tornadoPct;
-    [SerializeField] private float lightningPct;
     [SerializeField] private State currentWeatherState;
     [HideInInspector] public UnityEvent<State> OnWeatherChanged;
 
@@ -22,17 +19,6 @@ public class WeatherState : MonoBehaviour
         Lightning
     }
 
-    public float GenRandomPct()
-    {
-        return Random.Range(0f, 100.001f);
-    }
-
-    public void RandomizeWeatherPct()
-    {
-        duststormPct = GenRandomPct();
-        tornadoPct = GenRandomPct();
-        lightningPct = GenRandomPct();
-    }
 
     public WeatherState.State GetRandomWeather(float duststormPct, float tornadoPct, float lightningPct)
     {
@@ -50,9 +36,8 @@ public class WeatherState : MonoBehaviour
     {
         currentWeatherState = weatherState;
     }
-    public void CycleWeatherState()
+    public void CycleWeatherState(float duststormPct, float tornadoPct, float lightningPct)
     {
-        RandomizeWeatherPct();
         SetCurrentState(GetRandomWeather(duststormPct, tornadoPct, lightningPct));
         OnWeatherChanged?.Invoke(currentWeatherState);
     }

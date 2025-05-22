@@ -12,7 +12,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
        
     [SerializeField] private bool isDragging;
     [SerializeField] private bool isHovering;
-    //[SerializeField] private PlacementSystem placementSystem;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeedLimit = 50;
@@ -27,7 +26,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector] public UnityEvent<Card> PointerDownEvent;
     [HideInInspector] public UnityEvent<Card> BeginDragEvent;
     [HideInInspector] public UnityEvent<Card> EndDragEvent;
-    [HideInInspector] public UnityEvent<Card, bool> SelectEvent;
 
     [SerializeField] private StructureSO data;
 

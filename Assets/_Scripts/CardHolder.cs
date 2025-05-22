@@ -7,17 +7,17 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
+using Unity.PlasticSCM.Editor.WebApi;
 
 
 public class CardHolder : MonoBehaviour
 {
     [SerializeField] private Card selectedCard;
     [SerializeReference] private Card hoveredCard;
+    private CardSO currentCard;
 
-    [SerializeField] private List<GameObject> cardPrefab;
-
-    [SerializeField] private PlacementSystem placementSystem; 
-    [SerializeField] private CardCollectionSO cards;
+    [SerializeField] private CardSystem cardSystem;
 
     private RectTransform rect;
     private RectTransform canvas;
@@ -31,11 +31,12 @@ public class CardHolder : MonoBehaviour
         rect = GetComponent<RectTransform>();
         image = GetComponent<Image>();
         image.raycastTarget = false;
-        InstantiateCardVisual();
     }
-    public void InstantiateCardVisual()
+    public void InstantiateCard()
     {
-        Instantiate(cardPrefab[Random.Range(0,cardPrefab.Count)], transform);
+        //fix this into card system to track current card
+        currentCard = cardSystem.GetRandomCard();
+        Instantiate(currentCard.Prefab, transform);
 
         card = GetComponentInChildren<Card>();
 
@@ -45,13 +46,23 @@ public class CardHolder : MonoBehaviour
         card.EndDragEvent.AddListener(EndDrag);
     }
 
+    public void InstantiateCardVisual()
+    {
+
+    }
+
     public void CardPointerEnter(Card card) {
         hoveredCard = card;
 
+        transform.DOScale(1.5f, .15f).SetEase(Ease.OutBack);
+        DOTween.Kill(2, true);
+        transform.DOPunchRotation(Vector3.forward * 5, .15f, 20, 1).SetId(2);
     }
 
     public void CardPointerExit(Card card) {
         hoveredCard = null;
+
+        transform.DOScale(1, .15f).SetEase(Ease.OutBack);
     }
 
     public void BeginDrag(Card card) {
@@ -65,6 +76,7 @@ public class CardHolder : MonoBehaviour
         selectedCard.transform.DOLocalMove(Vector3.zero, .15f).SetEase(Ease.OutBack);
         selectedCard = null;
     }
+
 
     public bool IsUIElementInLowerThird(RectTransform uiElement, RectTransform gameplayScreen)
     {
@@ -85,30 +97,18 @@ public class CardHolder : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (selectedCard == null)
             return;
         
         RectTransform cardRect = selectedCard.GetComponent<RectTransform>();
         if (!IsUIElementInLowerThird(cardRect, canvas))
         {
-            Debug.Log(selectedCard.name);
-            int currentCardIndex;
-            if(selectedCard.name == "Card 1(Clone)")
-            {
-                placementSystem.StartPlacement(1);
-            } else if (selectedCard.name == "Card 2(Clone)")
-            {
-                placementSystem.StartPlacement(2);
-            }
-            else if (selectedCard.name == "Card 3(Clone)")
-            {
-                placementSystem.StartPlacement(3);
-            }
-
+            PlacementSystem.Instance.StartPlacement(currentCard.ID);
             //int currentCardIndex = cards.cardData.FindIndex(cardData => cardData.Name == selectedCard.name);
             //Debug.Log(currentCardIndex);
             Destroy(selectedCard.gameObject);
+            currentCard = null; 
             selectedCard = null;
         }     
     }

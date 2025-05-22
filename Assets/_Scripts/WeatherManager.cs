@@ -7,11 +7,15 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class WeatherManager : MonoBehaviour
+public class WeatherManager : Singleton<WeatherManager>
 {
-    [SerializeField] private TextMeshProUGUI duststormPct;
-    [SerializeField] private TextMeshProUGUI tornadoPct;
-    [SerializeField] private TextMeshProUGUI lightningPct;
+    [SerializeField] private float duststormPct;
+    [SerializeField] private float tornadoPct;
+    [SerializeField] private float lightningPct;
+
+    [SerializeField] private TextMeshProUGUI duststormTextObject;
+    [SerializeField] private TextMeshProUGUI tornadoTextObject;
+    [SerializeField] private TextMeshProUGUI lightningTextObject;
 
     [SerializeField] private bool isDuststorm;
     [SerializeField] private bool isTornado;
@@ -34,16 +38,40 @@ public class WeatherManager : MonoBehaviour
     public void HandleWeatherStateChanged(WeatherState.State state)
     {
         _weatherEffect.SetWeatherEffect(state);
-        Debug.Log(_weatherState.GetCurrentState());
+        //Debug.Log(_weatherState.GetCurrentState());
     }
 
     public void HandleWeatherChanged()
     {
-        _weatherState.CycleWeatherState();
+        _weatherState.CycleWeatherState(duststormPct, tornadoPct, lightningPct);
     }
 
     void Start()
     {
     }
 
+    private float GenRandomPct()
+    {
+        return Random.Range(0f, 100.001f);
+    }
+
+    private void RandomizeWeatherPct()
+    {
+        duststormPct = GenRandomPct();
+        tornadoPct = GenRandomPct();
+        lightningPct = GenRandomPct();
+    }
+
+    private void DisplayPercentage()
+    {
+        duststormTextObject.text = Mathf.Round(duststormPct).ToString();
+        tornadoTextObject.text = Mathf.Round(tornadoPct).ToString();
+        lightningTextObject.text = Mathf.Round(lightningPct).ToString();
+    }
+
+    public void SetPercentage()
+    {
+        RandomizeWeatherPct();
+        DisplayPercentage();
+    }
 }

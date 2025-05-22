@@ -10,8 +10,12 @@ using UnityEngine.UIElements;
 public class TornadoEffect : MonoBehaviour
 {
     [SerializeField] private GameObject flamePillarPrefab;
-    [SerializeField] private ObjectPlacer _objectplacer;
+    [SerializeField] private GridData gridData;
+
     [HideInInspector] public UnityEvent<Vector3> OnTornadoEvent;
+    [HideInInspector] public UnityEvent OnTornadoEventFinished;
+
+
     [SerializeField] private Vector3 currentGridCell;
 
     // Start is called before the first frame update
@@ -21,6 +25,11 @@ public class TornadoEffect : MonoBehaviour
         {
             Debug.LogError("Flame Column prefab not set in TornadoEffect!");
         }
+    }
+
+    public void OnTornadoFinished()
+    {
+        OnTornadoEventFinished.Invoke();
     }
 
     private IEnumerator IterateGridPosition(List<Vector3> pathPositions)
@@ -49,27 +58,28 @@ public class TornadoEffect : MonoBehaviour
             }
         }
         Destroy(flamePillar);
+        OnTornadoFinished();
     }
 
-    public void TornadoEvent()
+    public void ActivateTornadoEvent()
     {
-        List<Vector3> availablePositions = _objectplacer.GetAllBuildingLocation();
-        Vector3 startPosition = availablePositions[Random.Range(0, availablePositions.Count)];
+        List<Vector3Int> availablePositions = PlacementSystem.furnitureData.GetAllBuildingLocation();
+        Vector3Int startPosition = availablePositions[Random.Range(0, availablePositions.Count)];
         availablePositions.Remove(startPosition);
-        Vector3 endPosition = availablePositions[Random.Range(0,availablePositions.Count)];
+        Vector3Int endPosition = availablePositions[Random.Range(0,availablePositions.Count)];
         
         // Get all grid positions between start and end
         List<Vector3> pathPositions = GetGridPositionsBetween(startPosition, endPosition);
-        foreach (Vector3 pos in pathPositions)
+        /*foreach (Vector3 pos in pathPositions)
         {
             Debug.Log(pos);
-        }
+        }*/
         StartCoroutine(IterateGridPosition(pathPositions));
     }
 
     private List<Vector3> GetGridPositionsBetween(Vector3 start, Vector3 end)
     {
-        Debug.Log(start + ", " + end); 
+        //Debug.Log(start + ", " + end); 
         List<Vector3> positions = new List<Vector3>();
         Vector3Int startGrid = Vector3Int.RoundToInt(start);
         Vector3Int endGrid = Vector3Int.RoundToInt(end);
@@ -94,7 +104,6 @@ public class TornadoEffect : MonoBehaviour
                 Mathf.RoundToInt(startGrid.y + (yStep * i)),
                 Mathf.RoundToInt(startGrid.z + (zStep * i))
             );
-            Debug.Log(pos);
             if (!positions.Contains(pos))
             {
                 positions.Add(pos);

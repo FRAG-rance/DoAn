@@ -8,7 +8,9 @@ using UnityEngine.Events;
 public class LightningEffect : MonoBehaviour
 {
     [SerializeField] private GameObject lightingSFX;
+    [SerializeField] private CameraController cameraControl;
     [HideInInspector] public UnityEvent<Vector3> OnLightningStrike;
+    [HideInInspector] public UnityEvent OnLightningEventFinished;
 
     private void Start()
     {
@@ -18,24 +20,19 @@ public class LightningEffect : MonoBehaviour
         }
     }
 
-    IEnumerator CallFunctionForTime(System.Action function, float duration, float interval)
+    public void OnLightningFinished()
     {
-        float timer = 0f;
-        while (timer < duration)
-        {
-            function?.Invoke();
-            yield return new WaitForSeconds(interval);
-            timer += interval;
-        }
+        OnLightningEventFinished?.Invoke();
     }
 
     public void ActivateLightningEffect()
     {
-        StartCoroutine(CallFunctionForTime(LightningStrike, 5f, 1f));
+        StartCoroutine(Helpers.CallFunctionForTime(LightningStrike, 5f, 1f, OnLightningFinished));
     }
 
     private void LightningStrike()
     {
+        cameraControl.Flash(.25f, 0, .8f);
         GameObject temp = Instantiate(lightingSFX);
         Vector3 randomPosition = RandomGridPosition(5, 5);// hard coded also 
         temp.transform.position = randomPosition;

@@ -13,21 +13,43 @@ MonoBehaviour:
   m_Name: StructureSO
   m_EditorClassIdentifier: 
   structureData:
-  - <Name>k__BackingField: BaseA
+  - <Name>k__BackingField: House
     <Id>k__BackingField: 1
     <Prefab>k__BackingField: {fileID: 3570792796568956633, guid: dcdff6e3bc9fca742b22604f1b5dc122,
       type: 3}
     <Size>k__BackingField: {x: 1, y: 1}
     <Health>k__BackingField: 100
-  - <Name>k__BackingField: BaseB
+    <Cost>k__BackingField: 1
+    <Econ>k__BackingField: 1
+  - <Name>k__BackingField: Farm
     <Id>k__BackingField: 2
     <Prefab>k__BackingField: {fileID: 4168573547780433047, guid: 55a039592ebd2974ead441900fea068b,
       type: 3}
     <Size>k__BackingField: {x: 1, y: 1}
     <Health>k__BackingField: 100
-  - <Name>k__BackingField: BaseC
+    <Cost>k__BackingField: 2
+    <Econ>k__BackingField: 3
+  - <Name>k__BackingField: Factory
     <Id>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 1876966114359484996, guid: 4c34be510e56284448579ffffb54648e,
       type: 3}
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Health>k__BackingField: 150
+    <Cost>k__BackingField: 3
+    <Econ>k__BackingField: 5
+  - <Name>k__BackingField: Post
+    <Id>k__BackingField: 4
+    <Prefab>k__BackingField: {fileID: 1876966114359484996, guid: 73e5b1c158ee07545850f3a72819ea53,
+      type: 3}
+    <Size>k__BackingField: {x: 2, y: 2}
+    <Health>k__BackingField: 150
+    <Cost>k__BackingField: 5
+    <Econ>k__BackingField: 0
+  - <Name>k__BackingField: Tower
+    <Id>k__BackingField: 5
+    <Prefab>k__BackingField: {fileID: 3570792796568956633, guid: 20a4d225113ede5459d7f097f5108713,
+      type: 3}
     <Size>k__BackingField: {x: 1, y: 1}
     <Health>k__BackingField: 100
+    <Cost>k__BackingField: 2
+    <Econ>k__BackingField: 1

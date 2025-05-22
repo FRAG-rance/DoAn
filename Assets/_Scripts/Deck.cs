@@ -8,18 +8,10 @@ public class Deck : MonoBehaviour, IPointerClickHandler
     [SerializeField] private CardHolder cardHolder;
     public void OnPointerClick(PointerEventData eventData)
     {
-        cardHolder.InstantiateCardVisual();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(CardSystem.currentDeckSize > 0 )
+        {
+            cardHolder.InstantiateCard();
+            CardSystem.currentDeckSize--;
+        }
     }
 }
