@@ -21,4 +21,24 @@ public class UIGameplay : UICanvas
         UIManager.Instance.OpenUI<UIShop>();
         //UIManager.Instance.OpenUI<UISetting>();
     }
+
+    public void ShopeeButton()
+    {
+        UIManager.Instance.OpenUI<UIShopee>();
+    }
+
+    public void GuideButton()
+    {
+        UIManager.Instance.OpenUI<UIGuide>();
+    }
+
+    public void LandscappingButton()
+    {
+        PlacementSystem.Instance.StartRemoving();
+    }
+
+    public void RepairButton()
+    {
+        PlacementSystem.Instance.StartRepair();
+    }
 }

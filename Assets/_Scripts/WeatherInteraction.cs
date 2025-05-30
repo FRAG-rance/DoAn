@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -52,12 +53,23 @@ public class WeatherInteraction : MonoBehaviour
     private void HandleLightningInteraction(Vector3 gridPosition)
     {
         GameObject building = _objectPlacer.GetGameObject(gridPosition);
+        List<Vector3> list = _objectPlacer.GetSurroundingGameObject(gridPosition, new Vector2Int(1, 1));
         if (!building)
         {
             return;
         }
+
+        foreach(var obj in list)
+        {
+            GameObject temp = _objectPlacer.GetGameObject(obj);
+            if(temp.TryGetComponent<LightningRodBuilding>(out _))
+            {
+                return;
+            }
+        }
+
         BuildingData buildingData = building.GetComponent<BuildingData>();
-        buildingData.TakeDamage(80f);
+        buildingData.TakeDamage(70f + 10 * GameManager.sol);
     }
 
     private void HandleStormInteraction(List<Vector3> damagedBuilding)
@@ -76,7 +88,7 @@ public class WeatherInteraction : MonoBehaviour
             }
             BuildingData buildingData = currentBuilding.GetComponent<BuildingData>();
             //Debug.Log(buildingData);
-            buildingData.TakeDamage(60f);
+            buildingData.TakeDamage(50f + 10 * GameManager.sol);
         }
     }
 
@@ -88,7 +100,7 @@ public class WeatherInteraction : MonoBehaviour
             return;
         }
         BuildingData buildingData = building.GetComponent<BuildingData>();
-        buildingData.TakeDamage(70f);
+        buildingData.TakeDamage(60f + 10 * GameManager.sol);
     }
 
     public void HandleEndWeatherEvent()

@@ -27,14 +27,14 @@ public class LightningEffect : MonoBehaviour
 
     public void ActivateLightningEffect()
     {
-        StartCoroutine(Helpers.CallFunctionForTime(LightningStrike, 5f, 1f, OnLightningFinished));
+        StartCoroutine(Helpers.CallFunctionForTime(LightningStrike, (float) 5f + GameManager.sol, 1f, OnLightningFinished));
     }
 
     private void LightningStrike()
     {
         cameraControl.Flash(.25f, 0, .8f);
         GameObject temp = Instantiate(lightingSFX);
-        Vector3 randomPosition = RandomGridPosition(5, 5);// hard coded also 
+        Vector3 randomPosition = RandomGridPosition(Mathf.Clamp(GameManager.sol, 5, 15), Mathf.Clamp(GameManager.sol, 5, 15));
         temp.transform.position = randomPosition;
         Destroy(temp, 5);
         OnLightningStrike?.Invoke(randomPosition);

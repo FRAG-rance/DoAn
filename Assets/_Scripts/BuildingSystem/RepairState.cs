@@ -75,10 +75,13 @@ public class RepairState : IBuildingState
                 return;
             }
             BuildingData buildingData = building.GetComponent<BuildingData>();
-            buildingData.Repair();
+            if(EconSystem.currentEcon >= Mathf.RoundToInt(buildingData.GetBuildingMaxHealth() - buildingData.GetCurrentHealth()))
+            {
+                EconSystem.Instance.DeductEcon(Mathf.RoundToInt((buildingData.GetBuildingMaxHealth() - buildingData.GetCurrentHealth()) * 0.1f)); //hard coded aswell
+                EconSystem.Instance.UpdateEconVisual();
+                buildingData.Repair();
+            }
 
-            EconSystem.Instance.DeductEcon(1); //hard coded aswell
-            EconSystem.Instance.UpdateEconVisual();
         }
         Vector3 cellPosition = grid.CellToWorld(gridPosition);
         previewSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition));

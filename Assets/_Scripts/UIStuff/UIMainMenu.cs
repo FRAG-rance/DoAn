@@ -25,7 +25,7 @@ public class UIMainMenu : UICanvas
 
     public void HighScoreButton()
     {
-
+        UIManager.Instance.OpenUI<UIHighscore>();
     }
 
     public void QuitButton()

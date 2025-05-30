@@ -18,13 +18,13 @@ public class FactoryBuilding : BuildingData
         foreach (var buildingLocation in damagedBuilding)
         {
             GameObject currentBuilding = ObjectPlacer.Instance.GetGameObject(buildingLocation);
-            Debug.Log(currentBuilding);
             if (!currentBuilding)
             {
                 continue;
             }
             BuildingData buildingData = currentBuilding.GetComponent<BuildingData>();
-            buildingData.TakeDamage(45f);
+            buildingData.TakeDamage(80f);
+            EconSystem.Instance.DeductEcon(50);
         }
 
     }

@@ -845,7 +845,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8380790501066065835}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISetting, Assembly-CSharp
         m_MethodName: SetSFXVolume
         m_Mode: 0
@@ -1091,7 +1091,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8380790501066065835}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISetting, Assembly-CSharp
         m_MethodName: ToggleFullscreen
         m_Mode: 1
@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8380790501066065835}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISetting, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 0
@@ -1427,7 +1427,7 @@ GameObject:
   - component: {fileID: 8762988014350598124}
   - component: {fileID: 1215994169666755824}
   - component: {fileID: 3022307454242049616}
-  - component: {fileID: 8380790501066065835}
+  - component: {fileID: 7859260386118167932}
   m_Layer: 5
   m_Name: OptionCanvas
   m_TagString: Untagged
@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8380790501066065835
+--- !u!114 &7859260386118167932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1907,10 +1907,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8380790501066065835}
-        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
-        m_MethodName: set_useGUILayout
-        m_Mode: 6
+      - m_Target: {fileID: 7859260386118167932}
+        m_TargetAssemblyTypeName: UISetting, Assembly-CSharp
+        m_MethodName: BackButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

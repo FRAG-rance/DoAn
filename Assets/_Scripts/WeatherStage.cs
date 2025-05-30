@@ -21,10 +21,6 @@ public class WeatherStage : IGameplayState
     public void Exit()
     {
         EconSystem.Instance.HandleUpdateEcon();
-        if (GameManager.sol % 5 == 0)
-        {
-            CardSystem.baseDeckSize++;
-        }
         GameManager.sol++;
     }
 }

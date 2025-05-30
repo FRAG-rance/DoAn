@@ -25,6 +25,11 @@ public class BuildingData : MonoBehaviour
     {
     }
 
+    public float GetCurrentHealth()
+    {
+        return currentBuildingHealth;
+    }
+
     public float GetBuildingMaxHealth()
     {
         return maxBuildingHealth;
@@ -56,6 +61,8 @@ public class BuildingData : MonoBehaviour
     {        
         ObjectPlacer.Instance.RemoveObjectAt(currentPosition);
         PlacementSystem.furnitureData.RemoveObjectAt(currentPosition);
+        EconSystem.Instance.DeductEcon(10);
+        EconSystem.Instance.UpdateEconVisual();
         Destroy(gameObject);
     }
 

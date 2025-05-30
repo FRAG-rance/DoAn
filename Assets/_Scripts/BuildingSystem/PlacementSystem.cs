@@ -120,11 +120,11 @@ public class PlacementSystem : Singleton<PlacementSystem>
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            StartPlacement(2);
+            StartPlacement(6);
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            StartPlacement(5);
+            StartPlacement(7);
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
@@ -134,6 +134,7 @@ public class PlacementSystem : Singleton<PlacementSystem>
         {
             StartRepair();
         }
+
 
 
         if (buildingState == null)

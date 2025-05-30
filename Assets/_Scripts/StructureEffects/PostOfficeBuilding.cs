@@ -14,11 +14,11 @@ public class PostOfficeBuilding : BuildingData
         {
             if (GameManager.sol % 7 == 0)
             {
-                SetBuildingEcon(20);
+                SetBuildingEcon(100);  
             }
             else
             {
-                SetBuildingEcon(0);
+                SetBuildingEcon(-10);
             }
             lastSol = GameManager.sol;
         }
