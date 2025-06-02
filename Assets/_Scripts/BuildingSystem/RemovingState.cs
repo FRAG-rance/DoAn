@@ -11,12 +11,14 @@ public class RemovingState : IBuildingState
     GridData floorData;
     GridData furnitureData;
     ObjectPlacer objectPlacer;
+    AudioClip clip;
 
     public RemovingState(Grid grid,
                          PreviewSystem previewSystem,
                          GridData floorData,
                          GridData furnitureData,
-                         ObjectPlacer objectPlacer)
+                         ObjectPlacer objectPlacer,
+                         AudioClip clip)
     {
         this.grid = grid;
         this.previewSystem = previewSystem;
@@ -24,6 +26,7 @@ public class RemovingState : IBuildingState
         this.furnitureData = furnitureData;
         this.objectPlacer = objectPlacer;
         previewSystem.StartShowingRemovePreview();
+        this.clip = clip;
     }
 
     public void EndState()
@@ -45,7 +48,6 @@ public class RemovingState : IBuildingState
 
         if (selectedData == null)
         {
-            //sound
         }
         else
         {
@@ -54,6 +56,7 @@ public class RemovingState : IBuildingState
                 return;
             selectedData.RemoveObjectAt(gridPosition);
             objectPlacer.RemoveObjectAt(gridPosition);
+            AudioManager.Instance.PlaySoundFXClip(clip, new Vector3(0, 0, 0), 1f);
         }
         Vector3 cellPosition = grid.CellToWorld(gridPosition);
         previewSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition));

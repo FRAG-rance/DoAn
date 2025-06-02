@@ -6,6 +6,7 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class UIShop : UICanvas
 {
+    [SerializeField] private AudioClip clip;
     public void CloseShop()
     {
         UIManager.Instance.CloseUI<UIShop>(0);
@@ -23,8 +24,9 @@ public class UIShop : UICanvas
             buildingData.Upgrade(50);
         }
 
-        EconSystem.Instance.DeductEcon(10);
+        EconSystem.Instance.DeductEcon(100);
         EconSystem.Instance.UpdateEconVisual();
+        AudioManager.Instance.PlaySoundFXClip(clip, transform, 1f);
 
     }
     public void UpgradeFarm()
@@ -39,8 +41,9 @@ public class UIShop : UICanvas
             buildingData.Upgrade(50);
         }
 
-        EconSystem.Instance.DeductEcon(10);
+        EconSystem.Instance.DeductEcon(100);
         EconSystem.Instance.UpdateEconVisual();
+        AudioManager.Instance.PlaySoundFXClip(clip, transform, 1f);
 
     }
     public void UpgradeFactory()
@@ -56,6 +59,8 @@ public class UIShop : UICanvas
         }
         EconSystem.Instance.DeductEcon(20);
         EconSystem.Instance.UpdateEconVisual();
+        AudioManager.Instance.PlaySoundFXClip(clip, transform, 1f);
+
 
     }
     public void UpgradePost()
@@ -71,6 +76,8 @@ public class UIShop : UICanvas
         }
         EconSystem.Instance.DeductEcon(20);
         EconSystem.Instance.UpdateEconVisual();
+        AudioManager.Instance.PlaySoundFXClip(clip, transform, 1f);
+
 
     }
     public void UpgradeTower()
@@ -87,5 +94,7 @@ public class UIShop : UICanvas
         }
         EconSystem.Instance.DeductEcon(10);
         EconSystem.Instance.UpdateEconVisual();
+                AudioManager.Instance.PlaySoundFXClip(clip, transform, 1f);
+
     }
 }

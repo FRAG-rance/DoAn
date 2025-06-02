@@ -17,8 +17,6 @@ public class CardSystem : Singleton<CardSystem>
     {
         base.Awake();
         cardDict = datas.cardData.ToDictionary(r => r.ID, r => r);
-        Debug.Log(datas.cardData.Count);
-
         InitializeBag();
     }
 

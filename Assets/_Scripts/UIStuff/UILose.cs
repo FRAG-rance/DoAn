@@ -10,7 +10,8 @@ public class UILose : UICanvas
 
     private void Awake()
     {
-        econ.text = "Your highest econ acummulated: " + EconSystem.currentEcon; // this is wrong;
+        UIHighscore.AddHighscoreEntry(GameManager.sol, EconSystem.currentMaxEcon);
+        econ.text = "Your highest econ acummulated: " + EconSystem.currentMaxEcon; 
         sol.text = "Survived for: " + GameManager.sol;
     }
 
@@ -19,5 +20,6 @@ public class UILose : UICanvas
         CloseDirecly();
         GameManager.Instance.ResetGame();
         UIManager.Instance.OpenUI<UIMainMenu>();
+        MiddlePanel.Instance.DisablePanel();
     }
 }

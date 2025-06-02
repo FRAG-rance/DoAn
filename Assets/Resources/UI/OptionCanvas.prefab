@@ -838,14 +838,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 3007954406681425375}
   m_HandleRect: {fileID: 2678208448435651786}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7859260386118167932}
         m_TargetAssemblyTypeName: UISetting, Assembly-CSharp
         m_MethodName: SetSFXVolume
         m_Mode: 0
@@ -1224,14 +1224,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 6088253298232043418}
   m_HandleRect: {fileID: 6705625775952060515}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7859260386118167932}
         m_TargetAssemblyTypeName: UISetting, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 0

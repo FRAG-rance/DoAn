@@ -80,33 +80,28 @@ public class GameManager : Singleton<GameManager>
         CardSystem.baseDeckSize = 5;
         CardSystem.currentDeckSize = CardSystem.baseDeckSize;
         gameplayState = new WeatherStage(timeDisplay);
+
     }
 
     public void ResetGame()
     {
-        // Reset all game values
+        PlacementSystem.Instance.firstBuilding = false;
         sol = 0;
         EconSystem.currentEcon = 500;
         CardSystem.currentDeckSize = CardSystem.baseDeckSize;
-        
-        // Reset time scale in case it was paused
+        gameplayState = new WeatherStage(timeDisplay);
         Time.timeScale = 1;
         
-        // Clear all placed buildings
         List<GameObject> placedBuildings = ObjectPlacer.Instance.GetPlacedGameObject();
         foreach (var building in placedBuildings)
         {
             Destroy(building);
         }
+        ObjectPlacer.Instance.ClearDict();
         
-        // Clear grid data
         PlacementSystem.floorData.placedObjects.Clear();
         PlacementSystem.furnitureData.placedObjects.Clear();
-        
-        // Reset game state
-        gameplayState = new WeatherStage(timeDisplay);
-        
-        // Update UI
+                
         EconSystem.Instance.UpdateEconVisual();
     }
 

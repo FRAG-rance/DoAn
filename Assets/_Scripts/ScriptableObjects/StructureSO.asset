@@ -58,14 +58,14 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 3570792796568956633, guid: 9f1332301b2c1e147b3651a31676f78e,
       type: 3}
     <Size>k__BackingField: {x: 1, y: 1}
-    <Health>k__BackingField: 500
+    <Health>k__BackingField: 200
     <Cost>k__BackingField: 200
     <Econ>k__BackingField: 0
-  - <Name>k__BackingField: Tower
+  - <Name>k__BackingField: StormBlock
     <Id>k__BackingField: 7
     <Prefab>k__BackingField: {fileID: 3570792796568956633, guid: d75cee7e147c9de4ea50311a2b3c5f1f,
       type: 3}
     <Size>k__BackingField: {x: 1, y: 1}
-    <Health>k__BackingField: 999
+    <Health>k__BackingField: 500
     <Cost>k__BackingField: 200
     <Econ>k__BackingField: 0

@@ -16,12 +16,30 @@ public class UIHighscore : UICanvas
         Close(0f);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         emptyTemplate.gameObject.SetActive(false);
         float templateHeight = 100f;
 
-        for(int i = 0; i < 3; i++)
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+        for (int i = 0; i < highscores.highscoreEntryList.Count; i++)
+        {
+            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
+            {
+                if (highscores.highscoreEntryList[j].sol > highscores.highscoreEntryList[i].sol)
+                {
+                    HighscoreEntry tmp = highscores.highscoreEntryList[i];
+                    highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
+                    highscores.highscoreEntryList[j] = tmp;
+                }
+            }
+        }
+
+        Debug.Log(jsonString.ToString());
+
+        for (int i = 0; i < 3; i++)
         {
             var tempEntry = Instantiate(emptyTemplate, emptyContainer);
             RectTransform tempEntryTransform = tempEntry.GetComponent<RectTransform>();
@@ -45,11 +63,61 @@ public class UIHighscore : UICanvas
                     rankString = "3RD";
                     break;
             }
-            tempEntry.Find("NoText").GetComponent<TextMeshProUGUI>().text = rankString;
-            int score = Random.Range(0, 9999);
-            tempEntry.Find("DaysText").GetComponent<TextMeshProUGUI>().text = score.ToString();
-            tempEntry.Find("MaxEconText").GetComponent<TextMeshProUGUI>().text = score.ToString();
 
+            tempEntry.Find("NoText").GetComponent<TextMeshProUGUI>().text = rankString;
+            int sol = highscores.highscoreEntryList[i].sol;
+            tempEntry.Find("DaysText").GetComponent<TextMeshProUGUI>().text = sol.ToString();
+            int econ = highscores.highscoreEntryList[i].econ;
+            tempEntry.Find("MaxEconText").GetComponent<TextMeshProUGUI>().text = econ.ToString();
         }
-    }   
+    }
+
+    public static void AddHighscoreEntry(int sol, int econ)
+    {
+        HighscoreEntry highscoreEntry = new HighscoreEntry { sol = sol, econ = econ};
+
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+        if (highscores == null)
+        {
+            highscores = new Highscores()
+            {
+                highscoreEntryList = new List<HighscoreEntry>()
+            };
+        }
+
+        // Check for duplicate entries
+        bool isDuplicate = false;
+        foreach (HighscoreEntry entry in highscores.highscoreEntryList)
+        {
+            if (entry.sol == sol && entry.econ == econ)
+            {
+                isDuplicate = true;
+                break;
+            }
+        }
+
+        // Only add if not a duplicate
+        if (!isDuplicate)
+        {
+            highscores.highscoreEntryList.Add(highscoreEntry);
+            string json = JsonUtility.ToJson(highscores);
+            PlayerPrefs.SetString("highscoreTable", json);
+            PlayerPrefs.Save();
+        }
+    }
+
+    private class Highscores
+    {
+        public List<HighscoreEntry> highscoreEntryList;
+    }
+
+    [System.Serializable]
+    private class HighscoreEntry
+    {
+        public int sol;
+        public int econ;
+    }
 }
+

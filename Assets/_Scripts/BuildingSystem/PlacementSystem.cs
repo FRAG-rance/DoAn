@@ -7,6 +7,10 @@ using UnityEngine.Events;
 
 public class PlacementSystem : Singleton<PlacementSystem>
 {
+    [SerializeField] private AudioClip destroyClip;
+    [SerializeField] private AudioClip buildClip;
+    [SerializeField] private AudioClip repairClip;
+
     [SerializeField]
     private InputManager inputManager;
     [SerializeField]
@@ -28,7 +32,7 @@ public class PlacementSystem : Singleton<PlacementSystem>
     [SerializeField]
     private ObjectPlacer objectPlacer;
 
-    private bool firstBuilding = true;
+    public bool firstBuilding = true;
     public UnityEvent firstBuildingEvent;
 
     IBuildingState buildingState;
@@ -49,7 +53,8 @@ public class PlacementSystem : Singleton<PlacementSystem>
                                            database,
                                            floorData,
                                            furnitureData,
-                                           objectPlacer);
+                                           objectPlacer,
+                                           buildClip);
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
     }
@@ -58,7 +63,7 @@ public class PlacementSystem : Singleton<PlacementSystem>
     {
         StopPlacement();
         gridVisualization.SetActive(true);
-        buildingState = new RemovingState(grid, preview, floorData, furnitureData, objectPlacer);
+        buildingState = new RemovingState(grid, preview, floorData, furnitureData, objectPlacer, destroyClip);
         inputManager.OnClicked += PlaceStructure;
         //inputManager.OnExit += StopPlacement;
     }
@@ -67,7 +72,7 @@ public class PlacementSystem : Singleton<PlacementSystem>
     {
         StopPlacement();
         gridVisualization.SetActive(true);  
-        buildingState = new RepairState(grid,preview, floorData, furnitureData, objectPlacer, database);
+        buildingState = new RepairState(grid,preview, floorData, furnitureData, objectPlacer, database, repairClip);
         inputManager.OnClicked += PlaceStructure;
         //inputManager.OnExit += StopPlacement;
     }

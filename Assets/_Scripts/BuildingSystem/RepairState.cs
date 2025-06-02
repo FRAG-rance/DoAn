@@ -11,13 +11,14 @@ public class RepairState : IBuildingState
     GridData furnitureData;
     ObjectPlacer objectPlacer;
     StructureSO database;
-
+    AudioClip clip;
     public RepairState( Grid grid,
                         PreviewSystem previewSystem,
                         GridData floorData,
                         GridData furnitureData,
                         ObjectPlacer objectPlacer,
-                        StructureSO database)
+                        StructureSO database,
+                        AudioClip clip)
     {
         this.grid = grid;
         this.previewSystem = previewSystem;
@@ -27,6 +28,7 @@ public class RepairState : IBuildingState
         this.database = database;
         previewSystem.StartShowingRemovePreview();
         this.database = database;
+        this.clip = clip;
     }
     public void EndState()
     {
@@ -80,6 +82,8 @@ public class RepairState : IBuildingState
                 EconSystem.Instance.DeductEcon(Mathf.RoundToInt((buildingData.GetBuildingMaxHealth() - buildingData.GetCurrentHealth()) * 0.1f)); //hard coded aswell
                 EconSystem.Instance.UpdateEconVisual();
                 buildingData.Repair();
+                AudioManager.Instance.PlaySoundFXClip(clip, new Vector3(0, 0, 0), 1f);
+
             }
 
         }

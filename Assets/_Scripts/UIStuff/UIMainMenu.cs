@@ -5,18 +5,16 @@ using UnityEngine.UIElements;
 
 public class UIMainMenu : UICanvas
 {
-    private GameObject panel;
     private void Start()
     {
-        panel = GameObject.FindGameObjectWithTag("IgnoreLayout");
-        panel.SetActive(false);
+        MiddlePanel.Instance.DisablePanel();
     }
     public void PlayButton()
     {
         Close(0);
-        panel.SetActive(true);
+        MiddlePanel.Instance.EnablePanel();
         //UIManager.Instance.OpenUI<UIGameplay>();
-    } 
+    }
 
     public void SettingButton()
     {

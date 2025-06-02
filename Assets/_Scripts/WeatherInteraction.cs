@@ -62,8 +62,13 @@ public class WeatherInteraction : MonoBehaviour
         foreach(var obj in list)
         {
             GameObject temp = _objectPlacer.GetGameObject(obj);
-            if(temp.TryGetComponent<LightningRodBuilding>(out _))
+            if (!temp)
             {
+                continue;
+            }
+            if (temp.TryGetComponent<LightningRodBuilding>(out _))
+            {
+                Debug.Log("is rod");
                 return;
             }
         }

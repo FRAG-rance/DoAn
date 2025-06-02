@@ -13,14 +13,15 @@ public class PlacementState : IBuildingState
     GridData floorData;
     GridData furnitureData;
     ObjectPlacer objectPlacer;
-
+    AudioClip clip;
     public PlacementState(int iD,
                           Grid grid,
                           PreviewSystem previewSystem,
                           StructureSO database,
                           GridData floorData,
                           GridData furnitureData,
-                          ObjectPlacer objectPlacer)
+                          ObjectPlacer objectPlacer,
+                          AudioClip clip)
     {
         ID = iD;
         this.grid = grid;
@@ -29,6 +30,7 @@ public class PlacementState : IBuildingState
         this.floorData = floorData;
         this.furnitureData = furnitureData;
         this.objectPlacer = objectPlacer;
+        this.clip = clip;
 
         selectedObjectIndex = database.structureData.FindIndex(data => data.Id == ID);
         if (selectedObjectIndex > -1)
@@ -39,6 +41,7 @@ public class PlacementState : IBuildingState
         }
         else
             throw new System.Exception($"No object with ID {iD}");
+        this.clip = clip;
     }
 
     public void EndState()
@@ -78,7 +81,7 @@ public class PlacementState : IBuildingState
         //SpendEconGA spendEconGA = new SpendEconGA(database.structureData[selectedObjectIndex].Cost);
         //ActionSystem.Instance.Perform(spendEconGA);
 
-
+        AudioManager.Instance.PlaySoundFXClip(clip, new Vector3(0,0,0), 1f);
         previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), false);
     }
 

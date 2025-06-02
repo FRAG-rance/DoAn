@@ -140,4 +140,9 @@ public class ObjectPlacer : Singleton<ObjectPlacer>
         }
         return list;
     }
+
+    public void ClearDict()
+    {
+        placedGameObjects.Clear();
+    }
 }

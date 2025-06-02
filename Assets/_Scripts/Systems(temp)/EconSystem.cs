@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EconSystem : Singleton<EconSystem>
 {
+    public static int currentMaxEcon;
     public static int currentEcon;
     public ObjectPlacer _objectPlacer;
     [SerializeField] private TextMeshProUGUI econDisplay;
@@ -49,6 +50,10 @@ public class EconSystem : Singleton<EconSystem>
     public void DeductEcon(int amount)
     {
         currentEcon -= amount;
+        if(currentEcon > currentMaxEcon)
+        {
+            currentMaxEcon = currentEcon;
+        }
     }
 
     private float CalculateRoundEcon()
